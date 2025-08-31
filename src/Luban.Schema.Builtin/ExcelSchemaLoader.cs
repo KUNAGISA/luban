@@ -228,6 +228,7 @@ public class ExcelSchemaLoader : SchemaLoaderBase
                 new() { Name = "comment", Type = "string" },
                 new() { Name = "tags", Type = "string" },
                 new() { Name = "variants", Type = "string" },
+                new() { Name = "attributes", Type = "string" },
             }
         })
         {
