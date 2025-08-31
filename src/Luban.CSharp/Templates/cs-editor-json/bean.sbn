@@ -94,6 +94,11 @@ public {{class_modifier __bean}} class {{__name}} : {{if __parent_def_type}} {{_
     /// {{escape_comment field.comment}}
     /// </summary>
 {{~end~}}
+{{~if field.attributes ~}}
+    {{~for attribute in field.attributes ~}}
+    [{{attribute}}]
+    {{~end~}}
+{{~end~}}
     public {{declaring_type_name field.ctype}} {{format_field_name __code_style field.name}};
 
     {{~end~}}

@@ -80,6 +80,7 @@ public static class SheetLoadUtil
         "comment",
         "column",
         "group",
+        "attributes",
     };
 
     private const char s_sep = '#';
@@ -583,6 +584,10 @@ public static class SheetLoadUtil
         {
             descRow = cells.Count > 1 ? cells.Skip(1).FirstOrDefault(row => IsRowTagEqual(row, "##")) : null;
         }
+
+        //Attributes
+        List<Cell> attributesRow = cells.Find(row => IsRowTagEqual(row, "##attributes"));
+
         List<Cell> groupRow = cells.Find(IsGroupRow);
         var fields = new Dictionary<string, FieldInfo>();
         foreach (var subTitle in title.SubTitleList)
@@ -625,6 +630,7 @@ public static class SheetLoadUtil
                 Type = typeRow[subTitle.FromIndex].Value?.ToString() ?? "",
                 Groups = groupRow?[subTitle.FromIndex].Value?.ToString() ?? "",
                 Desc = desc,
+                Attributes = attributesRow?[subTitle.FromIndex].Value?.ToString() ?? "",
             });
         }
 

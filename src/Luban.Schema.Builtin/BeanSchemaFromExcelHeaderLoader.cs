@@ -83,6 +83,7 @@ public class BeanSchemaFromExcelHeaderLoader : IBeanSchemaLoader
                 Groups = new List<string>(),
                 Variants = new List<string>(),
                 Tags = new Dictionary<string, string>(),
+                Attributes = StringUtil.SplitStringWithEscape(f.Attributes.Trim(), '#').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).ToList(),
             };
 
             string[] attrs = StringUtil.SplitStringWithEscape(f.Type.Trim(), '&').Select(s => s.Trim()).ToArray();

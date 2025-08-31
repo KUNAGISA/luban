@@ -311,7 +311,8 @@ public class ExcelSchemaLoader : SchemaLoaderBase
                     (b.GetField("comment") as DString).Value.Trim(),
                     (b.GetField("tags") as DString).Value.Trim(),
                     (b.GetField("variants") as DString).Value.Trim(),
-                    false
+                    false,
+                    (b.GetField("attributes") as DString).Value.Trim()
                 )).ToList(),
             };
             Collector.Add(curBean);

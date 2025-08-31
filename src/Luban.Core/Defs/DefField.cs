@@ -41,6 +41,8 @@ public class DefField
 
     public bool IgnoreNameValidation { get; set; }
 
+    public List<string> Attributes { get; }
+
     public bool HasTag(string attrName)
     {
         return Tags != null && Tags.ContainsKey(attrName);
@@ -68,6 +70,7 @@ public class DefField
         IgnoreNameValidation = f.NotNameValidation;
         this.Groups = f.Groups;
         this.RawField = f;
+        Attributes = f.Attributes;
     }
 
     public override string ToString()
